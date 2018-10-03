@@ -1,0 +1,129 @@
+
+app.module.ts
+-------------
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatInputModule,MatCheckboxModule} from '@angular/material';
+import {MatSidenavModule} from '@angular/material/sidenav';
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,BrowserAnimationsModule,MatButtonModule, MatCheckboxModule,MatInputModule,MatSidenavModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+app.component.html
+------------------
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Favorite food" value="Sushi">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Leave a comment"></textarea>
+    </mat-form-field>
+  </form>
+
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
+    </div>
+  
+  </mat-drawer-container>
+
+
+  <mat-checkbox>Check me!</mat-checkbox>
+    
+  
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+main.ts
+--------------
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+import 'hammerjs';
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+  
+  
+  )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  index.html
+  <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootsp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+styles.css
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+_________________________________________________________________________________________________________________________________________
+Step-1  ( You can use command-line tool to install packages)
+npm install --save @angular/material @angular/cdk @angular/animations        
+-----------------------------------------------------------------------------
+Step-2
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';   ( app.module.ts)
+@NgModule({
+  ...
+  imports: [BrowserAnimationsModule],
+  ...
+})
+
+----------------------------------------------------------------------------
+
+Step-3
+import {MatButtonModule, MatCheckboxModule} from '@angular/material'; ( app.module.ts)
+
+@NgModule({
+  ...
+  imports: [MatButtonModule, MatCheckboxModule],
+  ...
+})
+
+----------------------------------------------------------------------------
+Step-4
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";  (styles.css)
+----------------------------------------------------------------------------
+Step-5
+npm install --save hammerjs
+After installing, import it on your app's entry point (e.g. src/main.ts).
+
+import 'hammerjs';
+----------------------------------------------------------------------------
+Step-6 (load the icon fonts in your index.html)
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
